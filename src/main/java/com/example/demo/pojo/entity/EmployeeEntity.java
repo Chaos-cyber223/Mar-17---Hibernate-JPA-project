@@ -16,7 +16,7 @@ public class EmployeeEntity {
     private BigDecimal salary;
 
 
-    @ManyToOne(fetch = FetchType.EAGER,
+    @ManyToOne(fetch = FetchType.LAZY,
             cascade={CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "dept_id")
