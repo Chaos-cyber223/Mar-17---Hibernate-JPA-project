@@ -10,8 +10,8 @@ EntityManager: Utilizes the JPA EntityManager for direct persistence and query e
 
 JPA Repository: Leverages Spring Data JPA repositories for abstracted data access and manipulation.
 
-3. Data JPA CRUD Operations:
+2. Data JPA CRUD Operations:
 Exploits Spring Data JPA's @Modifying and @Query annotations to perform customized Create, Read, Update, and Delete (CRUD) operations..
 
-4. Criteria Query:
+3. Criteria Query:
 Implements dynamic queries using the JPA Criteria API, allowing for flexible and type-safe query construction.
