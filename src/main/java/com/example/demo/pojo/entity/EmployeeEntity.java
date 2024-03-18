@@ -15,6 +15,14 @@ public class EmployeeEntity {
     private Integer age;
     private BigDecimal salary;
 
+
+    @ManyToOne(fetch = FetchType.EAGER,
+            cascade={CascadeType.PERSIST, CascadeType.MERGE,
+                    CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "dept_id")
+    @JsonBackReference
+    private DepartmentEntity department;
+
     public DepartmentEntity getDepartment() {
         return department;
     }
@@ -23,15 +31,10 @@ public class EmployeeEntity {
         this.department = department;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY,
-            cascade={CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "dept_id")
-    @JsonBackReference
-    private DepartmentEntity department;
-
     public EmployeeEntity() {
     }
+
+
 
     public EmployeeEntity(String name, Integer age, BigDecimal salary) {
         this.name = name;
@@ -70,4 +73,5 @@ public class EmployeeEntity {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
+
 }

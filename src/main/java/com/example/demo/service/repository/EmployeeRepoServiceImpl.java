@@ -5,6 +5,7 @@ import com.example.demo.pojo.entity.DepartmentEntity;
 import com.example.demo.pojo.entity.EmployeeEntity;
 import com.example.demo.repository.DepartmentRepository;
 import com.example.demo.repository.EmployeeRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,7 @@ public class EmployeeRepoServiceImpl implements EmployeeRepoService {
 
 
     @Override
+    @Transactional
     public EmployeeEntity save(EmployeeDTO employeeDTO) {
         DepartmentEntity department = departmentRepository.findById(employeeDTO.getDepartmentId())
                 .orElseThrow(() -> new RuntimeException("Department not found"));
@@ -50,6 +52,7 @@ public class EmployeeRepoServiceImpl implements EmployeeRepoService {
 
     
     @Override
+    @Transactional
     public void delete(Long id) {
         employeeRepository.deleteById(id);
     }
@@ -60,6 +63,7 @@ public class EmployeeRepoServiceImpl implements EmployeeRepoService {
     }
 
     @Override
+    @Transactional
     public void updateEmployeeName(Long id, String name) {
         employeeRepository.updateEmployeeName(id, name);
     }

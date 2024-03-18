@@ -16,7 +16,7 @@ public class DepartmentEntity {
     @OneToMany(mappedBy = "department",
             cascade={CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH},
-            fetch = FetchType.LAZY)
+            fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<EmployeeEntity> employees;
 

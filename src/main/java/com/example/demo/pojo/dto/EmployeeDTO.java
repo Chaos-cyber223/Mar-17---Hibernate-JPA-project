@@ -8,6 +8,7 @@ public class EmployeeDTO {
     private BigDecimal salary;
     private Long departmentId;
 
+
     // Getters and Setters
     public String getName() {
         return name;
@@ -40,5 +41,6 @@ public class EmployeeDTO {
     public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
     }
+
 }
 

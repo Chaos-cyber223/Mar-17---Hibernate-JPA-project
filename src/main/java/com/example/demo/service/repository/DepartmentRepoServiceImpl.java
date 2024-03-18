@@ -2,18 +2,19 @@ package com.example.demo.service.repository;
 
 import com.example.demo.pojo.entity.DepartmentEntity;
 import com.example.demo.repository.DepartmentRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentRepoService {
+public class DepartmentRepoServiceImpl implements DepartmentRepoService {
 
     private final DepartmentRepository departmentRepository;
 
     @Autowired
-    public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
+    public DepartmentRepoServiceImpl(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
 
@@ -29,11 +30,13 @@ public class DepartmentServiceImpl implements DepartmentRepoService {
     }
 
     @Override
+    @Transactional
     public DepartmentEntity save(DepartmentEntity department) {
         return departmentRepository.save(department);
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         departmentRepository.deleteById(id);
     }
