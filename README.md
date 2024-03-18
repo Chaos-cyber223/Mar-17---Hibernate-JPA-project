@@ -2,7 +2,7 @@
 
 This project demonstrates a Spring Boot application that manages employees and their associated departments.
 
-Features
+## Features
 
 1. Data Access Methods:
    
