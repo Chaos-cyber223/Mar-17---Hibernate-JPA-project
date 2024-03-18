@@ -24,7 +24,7 @@ public class EmployeeEMController {
 
     @GetMapping
     public ResponseEntity<List<EmployeeEntity>> getAllEmployees() {
-        List<EmployeeEntity> employees = employeeService.findAll();
+        List<EmployeeEntity> employees = employeeService.findAllEmployeesWithDepartments();
         return ResponseEntity.ok(employees);
     }
 

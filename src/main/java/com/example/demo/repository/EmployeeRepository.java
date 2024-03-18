@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
+    @Query("SELECT e FROM EmployeeEntity e JOIN FETCH e.department")
+    List<EmployeeEntity> findAllWithDepartment();
     @Query("SELECT e FROM EmployeeEntity e WHERE e.age > :age")
     List<EmployeeEntity> findByAgeGreaterThan(@Param("age") Integer age);
 

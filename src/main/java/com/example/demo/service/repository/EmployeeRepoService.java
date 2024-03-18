@@ -6,7 +6,9 @@ import com.example.demo.pojo.entity.EmployeeEntity;
 import java.util.List;
 
 public interface EmployeeRepoService {
-    List<EmployeeEntity> findAll();
+
+    List<EmployeeEntity> findAllWithDepartment();
+
     EmployeeEntity findById(Long id);
 
     EmployeeEntity save(EmployeeDTO employeeDTO);

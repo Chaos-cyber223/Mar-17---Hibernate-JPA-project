@@ -24,8 +24,8 @@ public class EmployeeRepoServiceImpl implements EmployeeRepoService {
     }
 
     @Override
-    public List<EmployeeEntity> findAll() {
-        return employeeRepository.findAll();
+    public List<EmployeeEntity> findAllWithDepartment() {
+        return employeeRepository.findAllWithDepartment();
     }
 
     @Override

@@ -19,9 +19,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EntityManager entityManager;
 
     @Override
-    public List<EmployeeEntity> findAll() {
-        return entityManager.createQuery("SELECT e FROM EmployeeEntity e", EmployeeEntity.class).getResultList();
+    public List<EmployeeEntity> findAllEmployeesWithDepartments() {
+        return entityManager.createQuery(
+                        "SELECT e FROM EmployeeEntity e JOIN FETCH e.department", EmployeeEntity.class)
+                .getResultList();
     }
+
 
     @Override
     public EmployeeEntity findById(Long id) {
